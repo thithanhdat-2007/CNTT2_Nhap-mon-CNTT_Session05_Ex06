@@ -1,0 +1,64 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\admin> New-Item -ItemType Directory -Force -Path "$HOME\smart-farm\bin","$HOME\smart-farm\config","$HOME\smart-farm\data"
+
+
+    Directory: C:\Users\admin\smart-farm
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/10/2026   9:53 PM                bin
+d-----        10/10/2026   9:45 PM                config
+d-----         10/9/2026   2:17 PM                data
+
+
+PS C:\Users\admin> New-Item -Path "$HOME\smart-farm\config\.env" -ItemType File -Force
+New-Item : Access to the path 'C:\Users\admin\smart-farm\config\.env' is denied.
+At line:1 char:1
++ New-Item -Path "$HOME\smart-farm\config\.env" -ItemType File -Force
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\admin\smart-farm\config\.env:String) [New-Item], Unauthorize
+   dAccessException
+    + FullyQualifiedErrorId : NewItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.NewItemCommand
+
+PS C:\Users\admin> Get-ChildItem "$HOME\smart-farm" -Recurse -Force
+
+
+    Directory: C:\Users\admin\smart-farm
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/10/2026   9:53 PM                bin
+d-----         10/9/2026   2:17 PM                code
+d-----        10/10/2026   9:45 PM                config
+d-----         10/9/2026   2:17 PM                data
+
+
+    Directory: C:\Users\admin\smart-farm\bin
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/10/2026   9:53 PM              0 pump_control.ps1
+
+
+    Directory: C:\Users\admin\smart-farm\config
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+---h--        10/10/2026   9:48 PM              0 .env
+
+
+    Directory: C:\Users\admin\smart-farm\data
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         10/9/2026   2:17 PM                logs
+
+
+PS C:\Users\admin>
